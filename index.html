@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!--
+Copyright (C) 2015 Buzzy
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://www.w3.org/2005/10/profile">
+<title>The Imperial Terra Stream</title>
+<link rel="icon" type="image/x-icon" href="./favicon.ico?">
+<meta name="description" content="A place for bros by bros to kick back, relaaax, and enjoy the stream." />
+<meta name="keywords" content="games, movies, shows, music, concerts, documentaries, military, philosophy, anime, cartoons, movies, television, sanic, tv, tabletop, warhammer, dnd, weeaboo, japan, dungeons, dragons, irc, twitch, livestream, space, politics, war, imperial, terra, retardy, nintendo, touhou, sega, computer, technology, tabletop, mario, valve, playstation, vocaloid, reggie, sci-fi, science, tv, mogulus, own3d, autopilot, youtube, hipster, cheddar, fabulous, console, mlp, america, overshilled, shadowrun" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<link rel="stylesheet" media="screen" type="text/css" title="DatStyle" href="strmstyle.css" />-->
+<style type="text/css">
+html {
+    height:100%;
+    width:100%;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
+object {
+  outline:0;
+  display:inline;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+a { 
+  outline: none !important; 
+}
+element { 
+  outline: none;
+}
+form, embed, input, select { 
+  outline: 0; 
+} 
+a:focus { 
+    outline: none; 
+}
+button:focus { 
+    outline: none; 
+}
+iframe {
+  border: 0;
+  outline: 0;
+}
+body {
+  margin: 0 auto;
+  padding:0px;
+  border:0;
+  color:#FFFFFF;
+  font-family:sans-serif;
+  font-size: 12px;
+  text-decoration:none;
+  background-color:#222;
+  width:100%;
+  height:100%;
+}
+
+#container {
+      position:relative;
+      bottom:0px;
+      width:100%;
+      height:100%;
+	  min-height:100%;
+	  max-height:100%;
+}
+
+#overlay {
+  display:block;
+    top:0px;
+  left:0px;
+  padding:0px;
+  margin:auto;
+    width:100%;
+    height:100%;
+  min-width:960px !important;
+    background-color:#000;
+    z-index:94;
+}
+
+#buttons {
+ z-index:97;
+ margin-right:4px;
+  width:100%;
+  vertical-align: middle;
+  padding-top:5px;
+  height:40px !important;
+  background-color:#191919;
+  min-width:960px !important;
+  text-align:center;
+  font-size:14px;
+  font-family:"Courier New","Droid Sans Mono",monospace;
+  color:#ccc;
+}
+
+#main {
+  z-index:97;
+  min-width:960px !important;
+  width:100%;
+  min-height:90%;
+  height:calc(100% - 45px);
+  text-align:center;
+  vertical-align:middle;
+  position: relative;
+  display:inline-block;
+  margin: 0 auto;
+}
+
+#footer {
+  z-index:97;
+    width:100%;
+    height:20px !important;
+    font-weight:none;
+	position:relative;
+	padding: 5px 0 5px 0;
+    min-width:960px !important;
+    margin: 0 auto;
+    background-color:#191919;
+    font-size:14px;
+    color:#ccc;
+	bottom:0px;
+    font-family:"Courier New","Droid Sans Mono",monospace;
+}
+
+#datStream {
+  width:60%;
+  height:100%;
+  float:left;
+}
+
+#datChat {
+  width:40%;
+  height:100%;
+  float:right;
+}
+
+.banner {
+    padding:0px;
+    margin:0 auto;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+.controls {
+  text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+  margin:auto;
+  min-width:60px !important;
+  display:inline-block;
+  padding:4px 8px 4px 8px;
+  vertical-align:middle;
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  font-family:"Arial",sans-serif;
+  color:#fff;
+  border-color:#ccc;
+  border-style:outset;
+  border-width:2px;
+  background: #444;
+  background: -moz-linear-gradient(top, #000 0%, #111 50%, #222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000), color-stop(50%,#111), color-stop(100%,#222));
+  cursor: pointer;
+}
+
+a:active.controls {
+  text-decoration: none;
+  font-family:"Arial",sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  top:1px;
+  left:1px;
+  position:relative;
+  border-style:inset;
+  background-color:#5A004A;
+}
+
+a:hover.footer_links {
+    text-decoration:underline overline;
+    color:#ccc;
+}
+a:active.footer_links {
+    color:#ccc;
+    font-size:14px;
+}
+a:link.footer_links {
+    color:#ccc;
+    font-size:14px;
+}
+a:visited.footer_links {
+    color:#ccc;
+    font-size:14px;
+}
+
+.bar {
+  background-color:#ccc; 
+  display:inline-block; 
+  vertical-align:middle; 
+  width:250px; 
+  margin:0 auto;
+  color:#ccc;
+}
+.left {
+    float:left;
+    margin:0 auto;
+    position:relative;
+    padding-left:2px;
+}
+.middle {
+  //stub 
+}
+.right {
+    float:right;
+    margin:0 auto;
+    padding-right:2px;
+    position:relative;
+    top:9px;
+    right:8px;
+}
+.ui-slider-horizontal
+{
+    background: #5e9ae2; /* Old browsers */
+    background: -moz-linear-gradient(left, #444 0%, #000000 100%) !important; /* FireFox 3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#444), color-stop(100%,#000000)); /* Chrome, Safari 4+ */
+    background: -webkit-linear-gradient(left, #444 0%,#000000 100%); /* Chrome 10+, Safari 5.1+ */
+    background: -o-linear-gradient(left, #444 0%,#000000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #444 0%,#000000 100%); /* IE 10+ */
+    background: linear-gradient(left, #444 0%,#000000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=’#444’, endColorstr=’#000000′,GradientType=1 ); /* IE 6-9 */
+}
+#slider .ui-slider-handle { border-color:#ccc; }
+</style>
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+ <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<!--<script type="text/javascript" language="javascript" src="script.js"></script>-->
+<script type="text/javascript" language="javascript">
+var dimmed=0;
+var mirrored=0;
+var toggled=1;
+var live=0;
+var ap=0;
+var id;
+var total = 100; // youtube favorites count without json update
+var channel="imperialterrastrm"; // current hitbox channel name
+vidids="6p9hP4rf1UY,jTAwbz4dJ0I,BYFbbveflGM,9u1vz1P09Zg,IyryxXeHOCE,QiH1yysVbh4,epkMnRq5Ie4,D9cl0sFtSfA,FQLYch4m91Y,8J05o90Su38,CN6srN0wooc,rfLSmlkkw98,eAyMyg3jnm4,BwgkeLfNkl8,C1DqnVpJj5A,eMHjljifCkI,2vELSZ0zIq8,LOlkfb87hXk,WkpwAkcnOWU,KSDj4qubAbQ,wrw1VMRNFUg,AYrT2utF_ac,01rpPco3L8A,z733DKQ8hC8,Exn9nGovI4o,0UkM_FXPP1I,Nhgpuh0wUS0,-yb-GFqzcCs,JdeAT1HpUdg,G7Ri6dhsnoU,JZnlJ2upJv8,6ziwK3ltzmc,Nr7ucYSy0no,Y4slPW9dSdg,UA33LOViUfw,GS7xTlurnk0,4xngUiWO_4g,9xmreAAKNoU,YBPoh64mbNY,HF_OExi22is,ic_1A-1tMxM,Lthej9qvmws,x3NLa4ebX4E,wuEIyqVuspI,q6EoRBvdVPQ,TvbtcCpWf-w,e72b7Nh6070,M7co94xJO_w,P9MykWYPaKM,1o7AOdoVXGk,sLcZwWiTUJs,l-Q8Vhk5Qjc,giQT-bTo4Dc,s2F6IUGnx3s,3G9MnGqG9vI,2p3HM-5Ry0c,KvtT3UyhibQ,KRctny31UxQ,MecZAXedMbY,dOiNqXEbWjI,sEIa1H8xyVQ,Pk_BkScQPxU,qPJvGMYxDPs,mfMk6BcwkEU,SsEzK6kYyEM,4B7g0qFYJ4c,XRk4v5nbGDo,UgCPBL2-lZM,Na2pHn1qAQ8,MRqWM_wqDs0,473G80r1T_w,g4V4udOasIw,-840keiiFDE,4hMRRWzACpM,n8eLMPCznB0,RwGTGsBXFt8,XV1X03w61DY,y4LqRRI2jKo,bxcDDQqllpc,gjqeHIa6pAs,YAydFX3bCcs,FavUpD_IjVY,WUWQFnC2zqU,U-EQJA8Ahac,YBpp0IIxJGQ,e__l9Naivf8,vlVb1p4Splc,iOJDInRo1zw,BRKCFbOYatA,w2xloS2pahQ,No4VE838aI8,AX5CtqKX_pU,abHC1vvx30s,iSx6C5Baci8,SRs6HrEVY1c,dOzCS2JLDak,TnvIGs9KKXw,x9aF4Oc6-ps,whQGEGrQHvk,5yRQXtavbqM,nqM7AFL4ixA,rGmv0GAPil4,nephG1H4uMA,T1aRLfMzGQY,Xv4vzFsZuw4,6XRWZ5GTVs0,wPLdcH79ztI,TrzVbu_KyEo,p6_BogCi29o,H6ATubFzfSs,F4agTWKMSgw,oWTgvRGwzWg,Va-Zf_cz-7E,qwoVDk8-1HY,suSSdHr8sog,pYZjRAbAy3I,nArkGT3TSgw,bwTOBI4ycPo,OsEIsPumPE8,mVI-xVWZf3k,mLy1Zc6REuY,DMrkb-0LrHc,1fa8uqnBjIg,3t4cyI_qMt0,MOaPCC8nUsE,JGmcLXmFWBc,9UEkc3e0Tyk,zADAFJjTQG4,SUVYhuV3y58,kw7q40lB9ns,JQezwoCr--Q,-Rz-Va_8MkE,zFNSWdX_F3Y,8ZA7CcJwVgo,5h1mwMILvkQ,6iL3TSACfGM,NG8F9PyFCAI,QxmH2N5PIAI,gtpbrqDZtd4,QiO2YSojS9A,6fL_xQsr3F4,TXVAPFlCHVY,u2W9mx6ORSM,yXR9McnBaX0,8sJAlVFqCHM,Hv6RbEOlqRo,1wV6_GiMR8s,NvS351QKFV4,aZw6b51bCkM,-JANIcZBkj0,leKW40kaiU4,4WgT9gy4zQA,tfMfkRLPXHA,2MMKB6zYbrc,TCFyc362Lvw,o4CFWLzqf9E,P-MqYgyhrOU,idbES4odRU8,SnTludRdZDw,3KJ2f-H_nzg,fiBX_sSSnpc,1J9ffRgADRU,Iw7cySzZBBU,SYKgFCW-f78,4e0Iq8MfKMs,z4065smJLXk,mMvr1tH2brI,13YlEPwOfmk,cPQZZw7X0GA,DSRltSN39aA,L9V214VPbHk,tZL6YHLwn9M,m_f0rWtdpaI,FgTk3rXn30k,Ebcxs4W1jWc,t6DWMIHJBik,JcamqrKBs7c,yUHxJvWqnUc,_P0RkjwTAHA,LwCGi2F24io,57HgLXs9QDc,98o3rRim5M4,d4400b-QO20,u_zf3y23k1E,PUrudD4Db5c,cShyzvQKqs8,xM3l9kIz43o,ToLCYmLGH40,ptU3EgOYJZo,vPcim19N1lU,q1g-N696SQQ,Jw1m2M8JdkU,RlbcBEy4ItA,Fdt98WP1PiA,8UznqYzxc2E,CBBvXth-O_g,PHNe6XOBDD8,J8f2EWP0pjo,oAQuUuxnsUg,irsGyvI937s,bABmH5e8X6g,VmlYzfgvqBk,tPr4w0btgOY,62C5_wlYXqA,NUa8DLg1TCE,oqyQ0iYrKHE,epuWBf09xq4,vQ4MSNB5Fu4,jlpxAK8RB3s,nxde5KX3zjA,Q37GOsn0Oe0,gIX8mEljBS0,FQ-Qu1PoBTs,Fvw_ZPWsRBE,CcYRXgKgxnw,yHWXVaax1h0,ciTUglIKuWw,QOZ2gcm8JrE,okamNOGlMLc,mO26RQkfID8,tV7QU0MJ5QU,yu8YNHvyVSY,5cTsgEpeTfc,0il0-zD5Ma0,hTUZCMQWyGg,h2qzdQzk7iA,xrEW5O7ByXI,BhtyEdhepIc,PVJ49a4_8V8,0HPMgOrNzxw,BpizP5X1Ry8,asRWwMyXUak,eIQXInylsKI,Hr41wO6QPbo,PaFnO5LKTSs,Z8zOQq2N3xA,mb8t9x5nMJA,q3ROdZg7V5g,tay4EknsXaY,sHb6Z3GAZQk,GY4rr4kNfAs,wgs-2ludE9E,012kGW22kHg,85_rdYCqfRQ,nC7C1y4yTKA,oUc0vbSlanM,e9GX51lcZZ0,0Mf8wJKv2wg,enb0zWbYUik,bsO2_J-wPvs,z93wWZ5w2d8,HKOVuO7itUI,W-RCA7HOtbA,zB_KGOi6aZk,C70p5XGSnt4,FPqNPBrbcz0,Bl2Pp--1lEU,Fx1Pf15dVbM,ey3tbpgW8NE,8FJTK_iNA5s,yqaCE-61xGk,AzvhgJMDTh0,P6ksCv3W89M,RRaTLLwRj8c,kdqH0ciOqE4,SR6CQC7dgsU,jWQaJ7-wnm0,SvjwXhCNZcU,ciMrXB5Q6iE,CR0adpZRGBk,tG2zwDPqt_Y,pcNriiII9zo,Xibua_MOmVk,eJikFEsZ3xc,E-JmMBz7Zyg,EZw97Bnlk-8,1IHQ_6UoJFQ,fU6sU9Zvq9k,LYZbUBx7uqc,7a7-5WYOKxE,JM5WqJp7tUQ,ARvbNdXK-lI,pvC9VC4vs3c,2RZZsVkYlx0,vc_Qf4dufVA,Lvsdxnt2P6M,C6hHiMtRSuE,68yP0imJkek,_TIsTOYJheo,nAlaS2_zZ3Y,y7V4T2MlmhI,n5o9aF0FFyo,5pTHEG7t-gY,HanmJRl1A_E,q-ykIYjwIf0,3Qli4nltjyU,xE05hi0LZxQ,OeGFKb4aoWs,nrkKExTUbf8,60HQDmnqpQA,1D81E1ecInM,5hwmPEanCdM,kTBdrTEqUps,4JiJE6Us8e4,BIT-qu7I4ek,tMXtWyRtCmg,vS3C0s3wuN4,BC989_sy3Y8,EhWrtlzJoOw,UJDjkMjkH1g,HnHEs5UHu2A,D_CiK8CAXbo,YPdA3z2vd-M,oMYunaGxqjA,8nlavrLbZrI,XE3M4CLhZAM,30N1iruh1Vg,UaJiPpLzbNg,Kpb9blSLlsA,4vHd78qysck,PJeH9_wbDK8,ptyV1cpE14o,wIWKxreuc_A,4SBXcybIo3o,z53ImZFol-4,G9xfqMtkmN0,v6w7g-5kM2Q,JlINtxOOxaU,E-yPGcDQUA8,k9GjcpskMD4,URBuVMuwdEk,KeQRiAU65JE,HM9WkUzns5U,i7fBVS-OxPU,-uPQFgyWJGQ,MNyG-xu-7SQ,CESQO2IZWAk,E69pS9DZf9A,IdWYseyzFCk,8wUixhV13gI,BQ9YtJC-Kd8,OyZVB9e9y24,0jGaio87u3A,s_kwPegDUnQ,GA2tpPl-9GQ,7N2lAuoBRys,YJsDY92pEkw,2019-P-KfS0,S89neINQmX4,gAu5pC7QuJ8,bsqxmov2Esk,E1d8kCxCtbU,qtFU6qsuY8E,v3UCBycRw60,pogKeG_8M4s,7pFXRoq_Ubk,XebVLN_uhgg,hC-FS4yYFL0,iZZenz16zC8,vH67duada9E,bSxwYBZqCWo,BLfN5tzdlhc,8lH9bNXpXbU,WQO-aOdJLiw,mO8_mn6IkZA,AS_1ZZAaD94,IYm1BgJe5Zs,rIdZO8Ym0N0,AHtsaSw-K8k,25GCSv_rbq8,SH9dnQfec9E,7Ze-xQoEfOU,gAAh9WKMDKY,viYB0euQTGM,DZMYprKBm84,fF9Qn5FQlBg,W5Kg-rxGsbQ,enPzv2XPzwU,atuFSv2bLa8,KXTXCbtUGf0,RKMSHbqziM0,-J_Vs6hmPLE,sQgH8alADfk,Lr12cpO8KP8,XbWXWmiQdu0,0L1FHj9QizY,3hlmNo_sEa0,eO89FPclQjk,BhQsFHlQqiY,8KvBJukcZ64,gk40_dEAQFc,FXdfNW3W7Rg,LY8L4ZrWizs,wJR2VIamaf0,uG_wGXEE6y8,CiDtbebJPKA,3x94Y787zfM,n0ku_u24dOw,FbglAOM4z4w,XeCsYu_0DLA,u07D3wVSBNY,QGBVpJT2_DE,GPcZ544G_Mk,ohfBnYoHySI,Xz1OTLUKMfY,heWFJiYhPrY,PgOUq-boVx0,3TbCKvtvk5w,9IUDZ2EcuXI,U1E7Qrsyt1A,d_93vrMT2Zc,nXwY06ejrI4,M7k1AjyoZ9g,btpZ1UnGBaI,BBeAfrsN-gg,1zsmMWaQSGM,4HGUfQGEVD0,UoMHONXOsFE,4VXUDlcr0qI,Mjk4322oCmo,WB9SL-mZtVY,u6e0abCt1ww,79iY5sfjMqc,O-jCiwV4ewc,W0Co408pyEM,8Xk3MDR28uw,YJ63xXjTwaY,35mNhYY3O3k,LVdajH5O6_0,13HtcK59CfE,TpeHquER5QM,fbMyqILHUbE,X9ywgxbGEZ8,od2GzLR7qdo,EFKsw8txPjs,Qie8mRTyNYQ,5etOHnmoElM,vrn4oXRBpqE,w3bRXduNU-A,pdw_XKbgpeg,4fFJZ80uECM,04Ra2MzewkY,AENsMiobLmc,_TBhFWOh0Y0,5yhj3kFiRE0,6s2iwMFZk_Q,4CajU4q7rXk,ym_PK4urMmc,e2VXvqjGXjo,QnSURplXzPs,MP-BhY2-rPw,lkQizWnmTtE,QTJdg7pxwtE,pmg_j3IyEG8,7POxLVbeO38,jgeuG9rrqL4,DzB7zfvH17I,-Dg-g_LdncY,sHpj0XWXezY,9oRMBOFS_Go,z05iP0rMttU,Fg8cGoLNdqs,ouCe9OTmTUs,fPSfbfK8wYY,z7g-v3d7-Gk,veX1uuTEatg,zdH7u_7W7k8,iylHTj0UCtI,632kyLysP6c,-1qJOc-ghC8,gHaMrIgSDFo,e79o4jHAMt8,FSgDUzpUs7g,0dD3dz44Xf8,QVmyz1NkKOc,ks6yPMWImgI,Bt5j6pzJ4XY,C43dGjRxl9Y,ZbATs02cnMc,1jXxnJgeTd8,Q_KVsQXeE6A,5vDV6tLnvOA,RapGNeiVu7M,U2IQGsywEmw,4YspcOUiACc,qfaH1cPes7k,0Yf_SOH7iZk,pSMQYDYBALY,dYwAkQsRbQ4,gqAypbgaUKM,XPKppCv3Qco,lsrsUy3C07A,OGS1811tHgk,VWQ1ukk_o4E,ziJvshXdurw,i1n_iF5I7Wk,beWo2Ic3cbQ,gWsCjxzYwSU,l-0rVkJKHIo,bgTssvm--Hk,0BHKv0LhCvQ,zT-qB3XmzH8,VtMiNRDT5IM,cOz5PoYLn8c,VAC-5BQnuXI,TasZaLqkylI,j63lGb0O-5U,RllaIzKdbg8,KMFLnlg883I,TrMB9gukWDQ,I_aEjIfcoUk,yJNgZymZX_M,I_M-hIlA2Hw,YrKMiE9WII0,DP_ZkJWBkNY,wyYr_uozXGE,GGmjj8U-rgM,KL7CuIUSEDE,QaiB0AUNqCs,qOMAxuh0Klg,qHIuAFaHqGI,lBICLteuQs8,q5In3OGQJQk,E-gD9PYqSps,wtsek8E0eNY,ym9kkWVLWBo,iYwDHpQADvA,OmZJeglZSIg,IKtW_7_b104,iHbpb-cdenE,TVli0334lD0,T3iHxLs5maM,6W_w2AzaZq4,CoM5AWtTsS4,pQGUmNtA6GI,e8IEiwBLSxw,jDNKibYm0wc,f4wtBjp1RKU,XA-4B2d4L18,E_AkUv-kNqM,cgPPwZ0qkro,-n0c5Ix3n8Q,uXW7E8Mq16o,PWeO5IkCssk,oqzobHEmH18,qjqW6T-z9PA,K0dFjaDQHvs,rjyxrgA_ZWU,HXKolhzVg2Q,7W2F7y7NloI,jWKV74Ro94M,TY9wKs3nzcU,22NyKD0M4rc,PSQN2VkU7Mg,tXB0fCsSpy0,rkeKV_THj70,y0dQ426EXq4,J9lqopPkSkk,5S66gt5hqJQ,KEwzYGpFQm8,HHgxOXEQaFU,VFCaEDETvy4,BR9dmyjThvc,Zy4G30kSPnY,fj3aGdKOmbQ,3_pgVaEvrZ8,nxMKG7Uy89I,ZD2P1BDSU4w,DQjIXFa2FVc,58OabCRCx_Q,NOatLGQk9Cs,N4Dxm5VSkeM,yaCdnCa7lgI,yqeXP-HPExU,33Ec6a2hFV0,NkyyY92UexA,QDusZJ9eVKU,8roSrMdP85E,oRBeeQ16Hi0,DxJQ5TxQ1uc,tXDv4l_3JDs,lsRXRcAOfcU,RA1GMc6t9T4,Zej3h8WcH_I,wBqM2ytqHY4,Vzf5sEOvNSc,jHn_6iKNy7c,fs-KIQJThgU,NI9xd732bJg,3m58RWTgW10,fkDSlB7fy8I,bX-h8CrIyyY,A-JDxriomxg,-rv7_dsLMt4,JnE0jWEwl2c,p7t_VUJUVks,BVIGE-Jp5N0,GYG68WqGGqw,6dxICJHd518,6bPr5gkYX80,5ebnHY55MXI,G1UbvCWQ2FI,ixqlkb3-cpU,ebmfZCoPY0s,lsqFlX4WIKg,QmmFjuTut2U,XqTCSqWr-QY,-vNxQqQaZLc,09MzaJVH5b4,ldxoBYxcna4,HajECunjYjM,B6FIAKAyT7o,bWHNDPSlhIQ,ClQiSCVG5Fs,6VnS8X8k3C8,T7OzkeZ2RnA,PjMf-lUAkSg,hWTFG3J1CP8,wfBqjxOCN3E,zKPhjkw3Y84,hn1VxaMEjRU,Hc6J5rlKhIc,iN3iLT1vsrI,Zt9_iKrsosU,OIe_5ruzrqI,FCARADb9asE,VQ7iTnZoUGI,_y-eRym_hts,1NFaQsRbglU,rxSZpPOQnIc,1aitomv0yeQ,ONMwnxowtog,SrQBIa3Ogqs,2wOWoBQMPOE,sFbcE9j9q4c,wv62ZwySiL8,tvA5UsbXoEE,uEC7tPPKAXQ,QRIV-KiMq0E,AB0avNQ9ZSY,YIyk_WT7DaY,5WBq64GOKm8,GgmbCgiEwNw,iFl7BhToiQg,oP4Z1FbjFxg,dFrQhn2I6XY,VMUDeL7dLj8,AtFDJTQ70YY,c2ju1MkpQyg,XCspzg9-bAg,EgRfDQ7AAxA,10ZXg02Pd5E,HmxIv1XZcQs,Pwa2tt4SOns,_hI0qMtdfng,f4mb6gzu60U,FuX5_OWObA0,xYNpECjIyzQ,zFjvI3ztlds,5P42WzQWsHg,3v05PWyIaZ0,p1BJYoDTNrw,syPF4IfZQBA,I9HFZkd_kBA,1-tX6ljFcq0,LMc-_Y9Ru60,jiumb7NC1yo,BdDeNNDnL3Y,r89Y6-Xf3n0,DQ7w_tvo4VY,kIWvFFN73Dc,7-lhb6_mzcI,E2gVQxsPDck,M61zARSP1Qk,Yayi7rfrf90,w9JABxGCjxk,erBpc9OKSXc,FdcPheS9IiU,Vmn9asN-8AE,dJ4179KtMBk,-AP8JNLxkkg,Q6X8IGlJRBo,UJyM5FRyd6w,yde1dnIIQzA,QEDaEwdW50s,ckLCrb6m45U,jQ7n95lCwik,tkwILjaj5Sg,QrW727WFVJ0,dwItlekl9Ik,dng71s9cfkU,pab_mFBOkhE,cMs3VPzcN24,y-BPYG6rR3c,1yiYnPVNPGc,RbW4UQI7pjA,w47m7yEr1W4,YzXR0dyXQkk,nqJuJds8BKY,8bcCMhADhYA,28Rs7GaqtWQ,7_4VZOjKRxA,fF0Cb7h6ZBQ,rVdFNgKtRF4,Vh-DOj30PPM,nmhcSCCiBPA,0bAywPxdA-4,H7nBAHGr76k,q09TeYAtXvA,aLAgTjaqU6s,eNH46s2FAp4,6ivbITBNz_g,MuWTQtyKih4,d_5Ex7J-3Z8,H7P2XI8xhtM,i8KFEpZ4rXQ,IrGurGUzBII,r_YSc-QNg9w,n0waX372Jms,imzcml21SVM,kPpC097Yze8,N75_1v_FMYg,C45Z35D33sU,LOsqtOxapbk,j27vdTSn7IE,mfFMpw2NZvc,RcYKS2RKEQg,SRNyGDRikSw,N2x_UJqLqyg,dcBSabz-63c,OQwC7FJTi8Y,RLC28y5d4VQ,rPg34AZbCwc,Eii-UXpOvSs,1gzcKrDX41E,qYNhB0R-bIQ,iRZ2Sh5-XuM,SoyFmjMmNnE,Gqsviggxi70,--2FANbhPfQ,ECEz3a4GErE,pHC42f2QKVY,r-mQe1DLXqU,Q4GmZt7-Bls,3Ym96fg8LJk,944rPD3kk-w,PmYG90Azlkg,h0mKSH7CstU,9OlpS-3D2B8,3_3E7UlmK2k,QWhUvm8SunY,I5Irc61wprM,Xtkc9Zd_2tU,EMiisnM-Nfk,Se875NWEIPM,cbG34c1qorQ,gYsQ8KN7EDE,iYGTbrYi914,vZpxo_2Mgqg,ggchpG9V-iY,ryEXiW7GNNg,rCCzZN803_w,j1S-PX-YbfY,tkIeNcG9-ds,BT3BC2NkAYM,x9aII55qNPU,jAksGVKkYwA,ENQREQ9k4Kg,2Q93gV-dMnM,mrVVpTrQkTA,963n-vhLCg8,mGlCGMm8Qag,ldFlcR31gYg,vIdcZPhheBg,GiAvA4Z17mc,W9jR2viC0VY,9q0s8eny3SY,l0ShflBPjhs,ySGtniX4QrU,hiRacdl02w4,kUofvsbrIlc,Ki-fATpXa00,td6gCz4dfnw,R3oSAVwcD4U,CiuWyFTFqek,IEIzuJZj03U,4qteWK0MkSA,DAMDPEjl2qw,1EKTw50Uf8M,jX3iLfcMDCw,7A5Z7ZfAa9Y,6xh8E3uhw_0,RrnWFAx5vJg,9mSzJj1c1z0,-uJd3Col7jM,pLhY5MLziwA,MSB9SZvtP2I,EKTwmW9tW2Q,Mhv9V3hlnk4,42JQYPioVo4,koLPQRpEAVU,NaJy12eqgwM,ORvvox3_Kig,QsaIg0FWHqY,6BM1S5OigxM,7bejDnC4q5M,ZmVqu623QPQ,hem1FkPD3ZA,yELOiYgR2aI,BX-isE6Cvg4,8hC3H-wv7SU,Nar1iAfMMhQ,kpRQgt28gJs,a_1Zgn_xb_8,V6WP5GQ6iFo,WHJ0qpwNo_U,eh4Za7BLejk,GoMY5LsU6SM,khK288b-o-c,D7XrVgM5E6Y,23oiO21pqEk,zLvw6PSuiIE,5ZRCGKwWgC8,9s-ls2pu-vE,9NKG9lR34dM,80fbdQBwbO4,oY-Ru5prVBM,c8fscLm0M24,-2EPpnNnnaA,IHVsYKBNQQ8,z8eHyqs0NIQ,sKIOoVlQNw8,W1rswKQ7x78,DajZ9_loNRA,MK7wPS_WUWs,efyufhtO7VU,BrvNydBx7es,8_assoiDQJM,1ihJBwiM2tY,XjK0P_Qz0SA,4txVqr1eNwc,DN4gheA9PuQ,mgDvYQ5D_kM,XoEaPTy5WeQ,zDZTUPFX8mg,QJqwW-ivdlM,bmU9tUZvk98,i4vsCUNo1dE,pPGa6vzfvqk,xm0WTmrPST4,dvc-vydnhpc,C3u5bse3d3I,TEB2YudrSCo,52thVH36kjY,m-NgHh36_vU,xLibNqfe9ck,5zm-EiKoISI,WpsowylBTR8,X04uT3-PyAE,M8KtUi8wRyU,ESHfSAhTg4o,1ArfRSVJ8FY,37jCpMOrMiE,BanHe0Ywp24,FngEwKkDnQo,4QfDViW2_mo,otC9OLN1JS4,gB3x4U5wlAI,VLLaSZHzlHI,5OknmX3hnRI,8W9hcxCaRyE,hfRW9AMDzmw,uI6fYL1ml4I,Wiv0rwgaAgM,_vAdh_Nl1mI,OVx5uprMPDY,gJ93GlbrqyY,DIn4L7hUmUI,0YrObCrK7m0,UmK0noqlnoQ,Axyuw1w1l2k,tD6lGtpXaAo,rGuOQhs0rI4,sMNww2LSwMM,rW6M8D41ZWU,iKBNb0_-7-0,O9WIxIK3ips,Mt4A9Qg1bn4,wSu1R2S7Qzg,GmFPXxF8kPo,gTKTEbzV6cU,oGXVa_w7QD0,iAO_0SFMya4,nEwa8-_cMdI,_izzXRMN9yk,HONcB11fxWY,NgWn7zbgxZ4,-lyfqUDFe0A,pndX0YNA70s,kkZCWqK7pMM,DvCThR7QkBw,s-vFtl3QEBU,-U5AMRnkKf4,cncB4HPOc40,MZbgJy5mXfA,h7Y-vr67agQ,XlHZrBUimuY,1NUG09KMWwo,fClIFZbCTB8,UW8QASSYe4I,GW-E0inTc8c,yYmVdzgfhCY,9HihKlDe5EM,FHKVxujt2B4,QNwCojCJ3-Q,5VY69SMRnYU,PHTVuP5P4ok,UUj2FWaST_Q,c69sHH9toAU,MzX-t5uchxo,W724mb8xQXw,paHGjIe2Wms,i7m76qdMZfQ,1dAAo1d625s,fnu9WOV5H3c,rlR6DPimNIk,ie_Nki86Uo8,5O1bGD12Hpc,F7mltqYCJCk,plQIf5fS8xw,58J3M5sgoeY,V9DVIScuzEE,VmzKWW02Nw8,mLvo1ZZkE8Y,nl-07w2z-7o,JYWDLOFHzSk,RhQXI7uLTds,aWRoWeg17c8,Eb6ncrfCx9E,K3xBZUnO-Fo,u9ymUX1fJLw,va8NKrDTA5A,kQc0eVdBJN0,Mr4ZdFQjBjU,-9xKWXUzUhM,v_Ds7CAsIrM,uD24TZ6sjH8,i3pfsCS7fWI,44MyrH4jwOQ,yJs6KT8NRwc,CMdp_YH_kI4,Y7WtkdLQ6PM,F0TZrCHZZbU,HkCWJrxfEZE,clGI_8hwzQY,fSL4J0zhMcY,GmVqB3YCYfY,ugedABoyzoU,PPr0xHqIiNs,dWyFD0CScEM,Hi-a93TgzBw,deZzqCzTcPQ,SzmLYHsAcZQ,l2sKt0JzzAk,gjBefGrgYjI,OJAdTn0CRLc,PI0NjKQYGBk,un4SGLNhZ9o,kTjqin2zSUI,EGaauhgRkEk,n5ijmtS2gco,AmZnoCdePKU,Ok-bMx6Say4,FaCHBmGWcBc,2lcK0wK_z8s,grs5YJmCgm0,83daamakUyE,rLGmjdm3vrw,7AhNp-prVpo,9gOrqlRfz5E,dkyy_VNwTIA,Gkgg3No2HIE,Y-ooCnZviZ8,4dEALh_CxTw,m1bBnpkDjNI,Bbf-Z2IgnVY,fMIt5RgCNQA,_4gl-FX2RvI,Oyh_pGBeZGk,UiBcsQ6dx4w,GSMCRD35ch4,BaLRpFdZ2V4,bJQRuxiivCM,4_2wBJUBn5U,F9SNSPUWnTs,-X2atEH7nCg,Mmjmbl7P70U,wuvYjrDtBcA,NKvDw6iUI18,3Gm1b8gMT20,vY5wRYaXaR8,C4DIqwmClCw,FD9M7E0Wjhw,GzgavGowD_A,a4vQG9Dov0s,-oB6DN5dYWo,vXjMdTmDV_o,5CYyOUcjQ_k,U5f-pOBKJ64,lw2f1T5smeA,ko0Bdb1jM_I,IobGY_qYPCM,i3fsHDJbBbU,QbpV5y_Dblw,fAxQS8k_MMM,TswI2Y7CUh0,SYyTYZr94m4,6xLAVWf-N3c,SQbReeKrDjc,aVjSknBCf4Q,_FKvgck9NRE,exHPe4Tzd8o,MdqpGdDUQTI,XjYtYtMEPQg,dMapmlUwerw,9g931LC43MQ,EZUoL-xox8c,c8SqTKud8mE,RSUMPSiganE,vpyqcK4zh_I,7tKqzgVFQ_s,akVlTUdukSU,zlptO0axoP4,OO-ZGP68-3w,pFHcHgS_OhI,e8QNhH6ik_E,GAvS1ndtEKg,O2adtTcSbjc,4jXBnABFnoI,yl2P4GwST_Y,FglVuYr0BJg,uqgFBQJycYU,wKcI4tQVLuQ,MgfqujwuVkw,lf9z9KNA2Kw,9tWBry3jBX8,l7RRiyc-4dk,HdqbCKSTblg,YBxc5KR_qYA,GqOcoU7aoFM,UGKzLVioFhQ,M2vTtu3pNFg,Ng1F9c_WV1Q,AAq9x8JXxSU,6MkwiJ_rZh4,6HNSBjMc-qk,dwrMBOyAqWU,1cIqJnZx1mI,oQj9ZFpgiAI,L6fSZpWzLN8,LAhDrx43nBQ,J9BQ9k7gcwc,XhxdAfbPsaw,OgG2p4iaIJ4,yt4KG9ib8S4,6wLfwUIjcqM,m3qHepWxn-k,PEgEYlByqz4,3EtK9FBJlp0,Vqm1qhD1gKI,Py3pDJo-OCk,lX4ja2l5H6k,PMb5p_rasnk,6FUOtxNIR4s,D_5iCPR_5oY,yM9Oli_hq0A,7LNDoHFAoog,kw7IBJaN6rQ,bLjlz3KMVMs,j3S3Txsl2vs,2Ak5fHKoweY,DJzgTZ68g9g,hyz1C5NjOJ8,GHgW2z61_9k,lka6wG7JTgk,FwW9NmD8Ci4,cN9Xhtb345w,UzQXEQqX70I,Pk3jgYTbHzU,TXf-MSXw30U,2XlEtkLpAlQ,m_TXgsFsh8g,4_FJbM4Rr6M,tfoeasCeh44,OchLinelMMQ,uhnTq9qKnfU,rLw-9dpHtcU,cMvX-wcopVc,muaEya7EkZI,oNOxOm22bVU,q6QVCdzJ4Ds,5J-Yysxa8Lo,3W4lfObbi-8,AuO8xyFPQ-M,rByc2iMz84U,4PuLKGfkVTk,mSLx_ItMJEA,OPazyimiJx4,cNbOfKEVaKc,2wqTnwJGvtc,s_RumrvvxFA,llI8G-3AJwQ,83aIdp1c1XY,qKy3BF2hrQk,2uHavAhHro0,aIPyD-_byfo,ecNqufvIYzg,15LU25xYDYo,S9de0rV25FY,RezbS5Qi4hk,LnZ1o_lv3IU,nEXVzLr28UY,C-x1OFh8p8U,pRPAqQyDkTY,cjaQ40wQrAU,e9i_GSyy_kc,_33n6zefLcU,xYqcxwuyBjQ,H-fWXSAO76Y,QXIL6H4olaI,m1lfkOc4VTA,VGlxNW5A-PE,gEGYGTzEGIU,JXxE2fGEBRE,PPJw60phb5I,gEu1qsFMOdk,p0fiPvpczWI,QRl8XdTOSyw,bV-1To37GWM,BiEMQHFzObU,uUqCxNDVWRw,uWvmWEMRxhQ,qgamdN9apaE,e-9Z5O4kwsw,36Do_XeeMoY,p4mwyO-HxJU,kPRA0W1kECg,DGiRRTi_hJk,x6VtUEB3krY,6TZ8Ll8bthg,cuNhfSM-144,JW8c12z0cQE,033FInn1wH8,gML0PukI5rI,Bj-CZ5ruoMs,_p4h3jwJob0,-ZdLbiF9gCo,7EbX5RnVjW8,VAj5e5uLFXA,N5bLSuZRZG0,fgnJEX1TCQc,VZoptTPbb9I,dZealBCnvws,efyDQ96Xvgk,FgMM1eJCvB4,Q39f4YzK6sU,CTZTmRVUWfQ,aczlXNLEc-M,qkkK5oqNVaM,XBZyVjUiDIA,HzG47zRH1GU,CeG39CwjC_M,VPr8KLAdg3E,baJyUKEHp4U,kq7DDk8eLs8,f-Ytm0kRB2U,-va4m-u6fTY,DELvF8KTfFg,seu7o8Gw99s,QlwGiDfN-mo,royTfXaUb2A,Jk3qUOLOpN4,fMKVvkLqvTw,gNSfhSXtvSk,KZgq_p3PCBc,hR2terkpO_I,me4wuWWiT_U,CP3O_QBdrT0,16XJBnjzMYU,4n09AHnddGE,oVvBEJTNEpI,o56sF6T9l5A,LnmyuMnJom4,64yKd33_W-g,aGVW99t7iT8,Mbb1GBo9CK8,u7Zvl80wfbc,xGau7XtIpDs,AqIVlxYgF38,Bvdyp-pDpgc,CYwcEb86zbA,iJCfOj7caD8,PwiVDyqpk2Y,oPTfVSxPilE,ESI4NHUilKI,MJEEhFMvVCs,5O8EQSWUScw,NeKbzxLlEE4,l27otMzmWCQ,KBEq-_3fGNg,rtChPB6NjJY,BNzcEFmkyeM,mGjRnNgheuU,9-QmQtNedwQ,D85duFrcw7o,jmIAM-hnEjQ,3QeYpjbsGfU,g3N_VS-dorE,QflcVdTAk64,PKZk_rgMqo4,93olDoPSaw4,WFQK5eF_puo,kDBM0q7L9do,ZIwAyvoGLu0,DWbjcyD-LgI,-9F5vWd5Slo,Xc86rEJcvAE,2gpFqqOIVlw,D4E7KZZFL70,k_VH3R1luEA,Dpw57FMCCMw,Z_orj1z3mOY,0hxFyDpfcg0,ARBFwlugRmQ,gagcvbeW9O8,DMXvDaXCOFo,MGD_i8_qE6o,n1XHKXIOspY,1d7_qybGF8Q,iTvHzn5l74w,DN-zSmZlYpE,MyAIBL1Fo10,Q7l9fSSdcVQ,6QFwo57WKwg,wc7-g95r7K8,tffOB41vc84,47cvM33Y0-8,DNdC9hlW65c,8OePmLWiiP8,7lc4V0E0Xv8,xWVdf3K44-Q,V8C6vvnOyHw,SMmY4j9OPdA,M0otAPMn1Ro,eIZXgAgMQ30,X5yNnWP_zK0,i9qcv4OAx74,EF22WZuLxtw,GruggJMvbN8,yq6D5LHzdqk,C23cPuZ6BoY,4ltasTH1yZ0,XnprB1MU6Ww,TqDCwmjPaUc,81FAbxn9DWo,3_U7HWaH5Vo,NKlCIR654Ho,nYMUTS4L46I,lMMidLMzgnw,DP29E9MljaE,xfJuJrqFhXM,LygKnJGIx_c,I_rBVwPEJng,rFtVKcfsZFs,B40U1KQQI1g,p5lwvc7MDG4,1sGHEI_dmUM,kdURDeKS5XQ,0tdyU_gW6WE,9E5iJjyNxEM,rtvWAM140xI,wlLHZruDCAA,vkHyw97nBXA,RUm56MFZ3uw,gKg5Dr_4i5M,XGqyyJSpx1w,r9ezd5Mj9gA,GZDtSwyIjwI,OrR1TGQY20Y,M1lGzxn42l4,JIxlMG13zR8,BX8BmTPzf9E,KTIYRj_Kac8,ZZ5LpwO-An4,QV7fyc7drU4,cGpV4oQEG6E,B5YokNW7tIs,_peUxE_BKcU,Shn9JYav-Jk,X_7dIDAZ1Oo,wGkZf6n_VXM,TOI-Qcis3us,PfpOAmqBuMk,si01iEMGlk4,5uQf7nUotsE,3hgb5_RYSqc,814I8IQ21zE,QxGoPypBn9g,HW30Cnn8oVE,7EShdssPUJY,imND3xhXYWA,JLNIFiCrCKc,jLf_DXqKw2w,0EiJ3xcyaaQ,93BhHgnaAdw,DEpQ6Cp9gd4,pGFjY7LBQHU,OB4sK7U1e5M,GmHlh6tQAO4,TrlKC60jjSg,bwPLwX9aluY,asD7DioOuaM,30Z1evWtyqw,g-egGn5WYrk,K2X4t-MwUos,sjivgLoikcg,aIsJ5tAA7Zc,y3K0elXGF78,isdrUOPzyN4,hdYJDdj8tiw,YMAHIMA767g,hGHvAmm7xVE,BsEvNheFQPQ,nNnLwxEenKI,WPnUYO-CR44,2iBDm3dgzlQ,JcGl-65cBsU,dg4Es4ZVVC8,S_UcZRCYKtM,k-bUR5l8RAg,XoBSKm7jRv0,eQbQI-KVH4E,O6eCgP2JbRk,vnULYZZW93c,s7mLYrocqlY,5oZ_nDUjiyY,9NeseRI4QYg,ObZyg8R_B_I,hZkNGQRliZo,3qmV3mo4C_c,JO7xviZc8x0,JCqrRE9O9rI,xDO-v0rkDcU,HWs92_W8nBg,Vxi7JRJrod4,ROn5o91t0ck,i3_EO0iNwqE,1LPZnyWH_w0,UaN2zOxMPoQ,5lYZcIC6bqU,7meTLDsPFaw,kj13_x1Ok58,yzhXGbdB4AU,MldtkhshYyU,Ih323XXu_3w,7SbOunuomDg,CiOLHJSUCqU,AQZTO3DS1IY,Jcqj0cz4kJM,jWEd_c4RiBo,azOvRwrqz2M,LPvHEYi_1aw,IRWNmjga9Y8,d1e_546cOCg,xteBk_bf1XI,6_NeqMAAsBk,xl0HMojr9Uc,paH9oq_X658,0RibSLysp8E,XD2pgj-STIs,jpAKz_sUNIs,NgEgwWeML9k,MFHuiOKKjvI,5hzsXH8KqPs,PycVk_Auz7c,hIGlh0xRuCY,54Hj_P49h3k,vyvfOmAF0m0,70DKHFX_ZWU,xjn4vHsyKvY,fX_120DMFDQ,L-LyFMCIpok,C4bgI9tv9nw,FQiyOuqrk68,rRFz10rL6DY,ad_ng3nuWTQ,uLxoEHoJW04,DFM140rju4k,pLRnnduZ7Eo,1cLBc5oTOWM,uHS8O_4B7kI,u04TTF2qfaY,RsNncT1Zisg,UxmmDBxyrc8,6Cl6e9RHncY,ZgPZ953stwI,SCBBQ9AaKY4,yBfEnnKuQco,NrFXOW1wOR0,RWi4J-xrepM,T7naPxQVqoQ,N8b2Fj_LbI4,4IMrP5t18ug,iQxu-q504Bg,VJUX7AaRYSY,P1CX9DC3tXg,pdL3SlpgPdk,OzfNrkJ-3mE,rRctiUI8pmE,hTV5PSLvHk0,naOwGlbp0n4,WkjJndLnVps,VuuTlnypZJE,siBcLK0Qtd4,0kcF7E69C6Q,aL3vlP05hU8,IW34-Ev24HM,xTqhyHuKVKA,DA_GsGGiNw8,GxHAiWkzrrQ,CkaX6tyq9pI,J84GPzleSsI,fYiWkAeD8Go,mkxJFxI3duI,D-2BQulQNW8,yIH-yP5iGUA,UypBp-y0UEc,unEb4N9S08s,4kqoM7SvKUY,g1Og5Tg_Jyo,sJTxbk1PmJw,-DcR6Bke-rc,zH5PWeITkpI,cLLGQxtRrQY,i7AC5M7F4ys,OT_H6iyjt38,hqIsc8ooXug,_0JKl45OmKY,nk2wViKSh_M,_ahep_49rxc,K7fxYKcwnHY,o78fahnQ3vg,IWtcvOLsLIk,ZjSe8T0kC34,LhAcanLoJZY,pB8Ph0hnRPY,TrXvRGCLuWQ,CotXWxTBIZE,T9moJawinsc,6rtZGtCj3BY,Dzg0d68CbLU,wxrACWQvzHw,1sxNy0qQDkU,b0VVDkiaATw,svrsjZjMnMY,6yzCsPpYOdU,S7TqbTTLWtQ,hKUoLTzpgLk,aHTbIx4K6rg,ssME2F2bNfA,y10G3K2aar0,acZV_LJPILc,-OwVI9Oaj3Y,rDyashls_5g,X_65yuIx1-s,Zn_TD4O7fJI,hKwqMF6pT9c,PnPPAr7p04o,BGE_s_XcAeU,77iTCVhVx94,ppjWIK50FCc,D8IEQNNni-c,rGtIFmjfoYg,4H2u2Q2UbUs,S_2Xslff0Zs,7C1JBsw4azk,niTY4dMSR4A,5st8xzwTn5k,Ok7kcGEI1oM,j_ipX5lbYco,5w0Vhgtxa5M,30WZpjH9gtg,FAYc0jJXuMQ,Z8seanWNU4w,TPdjUIyGH28,jpoviHJSuZA,AWiBVze-d24,v3zrtMEjI-Y,FYVhVef8mic,sXXmFxRltBE,2IGmuyEsiDs,VWAhjwmO6y8,yAGECigOOko,cMPu5uXmjv0,jvEgApesBWk,332-X3Jw7uU,shZ5il9quZI,cbfhxf6wA48,HX_iySyTOic,F3wMzF8NF9c,A68S26iNWtE,0QA7JKNAg2I,ww8WJYNpViQ,afPbK1HIGwo,kJxE_7-LCEo,ajS94fJc2pg,SprncDBwljs,cWvZw1F6qMM,8b_v4P8LJNQ,38PcImUxIZw,vJQBmGmYccI,ribVUgN6QEI,0rWMjrFa9BQ,5Cam1KCQ4aY,TBiShzF9kl0,pcd3VFGLaA8,xb5IUm9DUEI,YhWmboM0zFc,45NlGdOcvqs,ckc6XSSh52w,B_cU9MTyCGo,MizTlnwkzi4,e5teyluCrM8,idE7NVXPP44,DX0IqjlQ0Ew,YARnI-HPtaE,1ckJwDnvXe0,O21AG0iAfwk,95VDss0D7UA,17oC-uDAFO4,EQKoMVqUwIs,GRsdXLx61rk,1ZgxeX2dCnQ,uk0nhzpEq6k,gUlF1naMr3Y,4waEzD5nc74,zXfz1NTeRiQ,W3ayJoU0xEs,bXrOaVB--XM,zxWE3FJmiwo,9HCDPTQGmrI,DRDrJTCvuSs,tckwz0ZS3Zo,u9GSmxKiWRo,SzKhwLLUDDY,SscNTrFnDx8,lLLR0jHiQh4,UElLV64BMVc,cK6_hcFk1O8,aIbvRF8iDnc,dCtNqeFIHCE,lFhso1tbDeo,tjfsJ93utsQ,6bnanI9jXps,tGJib9CFl2Y,3TkFm7COCKU,wyjXybuxp-k,af13mFqWBMI,RB6qVzYZhCE,aKmRl_Zq51o,noVEmLYoVzY,2lbDgu7U7uU,NjEhmWwa5VY,QpKZBZMj9iQ,UDN_CZMItlY,iAR9MgZkSF4,uDuyl23BN9A,b9bl09q9wME,BuuWx8z5bhE,rj2d6BjeagY,d2Nud_xKIBo,e58d9ez8Tak,323u9CzTs0w,SpsezVsd0No,sN7ThIil7Fg,PtcqXFZFiWo,0p7sr2KrHaM,DH5jTxPHthY,2smVUU_Uoc4,6i78wE7wNkQ,RRtqK4Xr1Fs,TT5jZMmxkKE,pF6LGBwjIAU,nSA854M9XFA,xYzBhtZnm7Y,wEEEASNmM18,CcnzvIM5XX0,JoYkbKBlbQk,ma1QQUvb3IE,4n1PwyADGh8,ETcJeJIqca4,PKm90g61xbc,yr-OLZmKZ_I,VqB1uoDTdKM,hCSWdZBqUTA";
+
+
+/*
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+toggled = getParameterByName('autoswitch');
+
+console.write(toggled);
+*/
+
+
+/*
+  function linkify(username,service) {
+  if(!username || !service) {
+  url="http://www.imperialterra.cow.no/";
+  }
+  else {
+  url="http://www.imperialterra.cow.no/index.htm?channel=" + username + "&service=" + service;
+  }
+  window.alert(url);
+  }
+*/
+window.onload = function() {
+    /*var query = window.location.search.substring(1);
+
+      if(query) {
+      var dat_split=query.split("=");
+      var channel=dat_split[1];
+      document.getElementById("channel_box").value=channel;
+      document.getElementById('datStream').src="stream.htm?channel=" + channel;
+      //document.getElementById('datChat').src="chat.htm?channel=" + channel;
+      }
+    */
+    //    var url="http://imperialterra.x10host.com/embed.txt";
+//    var url="embed.txt";
+//    var url="https://api.ustream.tv/channels/18203009.json";
+
+//    $.get(url, function(d){
+//			   var regex=/twitch/;
+//			   if(regex.test(text)) {
+//			       service = "twitch";
+//			       channelre = text.match(/twitch\.tv\/(\w+)/);
+//			       channel = channelre[1];
+//			       document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"//www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=false&quality=best&volume=100\" scrolling=\"no\" frameborder=\"0\" allowfullscreen webkitallowfullscreen style=\"border: 0 none transparent;\"></iframe>";
+/*			   } else {
+			       service = "hitbox";
+			       channelre = text.match(/hitbox\.tv\/(\w+)/);
+			       channel = channelre[1];
+
+//			       document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"//www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=false&quality=best&volume=100\" scrolling=\"no\" frameborder=\"0\" allowfullscreen webkitallowfullscreen style=\"border: 0 none transparent;\"></iframe>";
+//			       document.getElementById("datStream").innerHTML="<iframe src=\"http://www.ustream.tv/embed/18203009?html5ui\" style=\"border: 0 none transparent;\"  webkitallowfullscreen allowfullscreen frameborder=\"no\" width=\"100%\" height=\"100%\"></iframe>";
+
+
+			   }*/
+//			  }
+//	 );
+//    stream();
+//    get_count();
+    youtube();
+    get_strm();
+//    autoswitch();
+}
+
+/*
+todo: fix this function so it works with youtube v3 api
+function get_count() {
+   	    $.ajax({ 
+		url: "https://www.youtube.com/playlist?list=PLppNsqD3hTgyxGECUef104jQjvsNGEJA9",
+		type: 'GET',
+		crossDomain: true,
+//		dataType: 'jsonp',
+//		jsonp: 'jsonp',
+		success: function(data) { set_count(data); },
+		error: function(d) { set_count(50); } // guess count for default
+	    });
+}
+
+function set_count(data) { 
+  var data2;
+  if(isNaN(data)) {
+    data2=data.split(); 
+    alert(data2);
+  } else { total = data; }
+}*/
+
+function get_strm() {
+   	    $.ajax({ 
+//		url: "https://api.hitbox.tv/media/live/" + channel,
+		url: "https://api.ustream.tv/channels/18203009.json",
+//                url: "https://xtitsrevivalx.api.channel.livestream.com/2.0/livestatus.json",
+//		url: "https://api.twitch.tv/kraken/streams/" + channel + "?method=get&callback=?",
+//                url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC8TvySDl3yC1D-0BCskN9bQ&key=AIzaSyAbDUf0Bz6CFeA1B-niPvDE1XTugaPQSSo",
+//                url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC8TvySDl3yC1D-0BCskN9bQ&eventType=live&type=video&key=AIzaSyAbDUf0Bz6CFeA1B-niPvDE1XTugaPQSSo",
+		type: 'GET',
+		crossDomain: true,
+		dataType: 'json',
+		jsonp: 'json',
+//		success: function(data) { do_stuff(data); },
+		success: function(data) { do_stuff(data); },
+		error: function(data) { do_stuff(data); }
+	    });
+//window.alert("hi"); 
+    if(toggled) id = setTimeout(get_strm,10000);
+}
+
+//function autoswitch() { get_strm(); id = setInterval(get_strm,5000); }
+
+function do_stuff(json_data) {
+    var obj2 = JSON.stringify(json_data);
+    var obj = $.parseJSON(obj2);
+
+//    try {
+//	obj = JSON.parse(json_data);
+
+//        console.log(JSON.parse(json_data));
+//    } catch(derp) { console.log(derp); }
+
+//alert(json_data.toString());
+    
+    //    if(obj.stream === null) { alert("yes"); }
+    //  alert("Live: " + live + " AP: " + ap);
+//    if(obj == undefined || obj == null) {
+//	return 0;
+//    }
+//    if(service == "hitbox") {
+	//	    window.alert(obj.livestream[0].media_is_live);
+    if(obj !== null || obj !== undefined) {
+// livestream      if (obj.channel.isLive == 0) {
+  if(obj.channel.status == "offair") { // ustream
+// youtubelive	if(obj.livestream[0].media_is_live !== "1") {
+//console.log(obj.pageInfo.totalResults);
+//        if(obj.pageInfo.totalResults < 1) {
+	    if(ap == 1) {}
+	    else {
+		youtube();
+	    }
+	} else {
+	    if(live == 1) {}
+	    else {
+		stream();
+	    }
+	}
+    }
+//    if(!live && !ap) youtube();
+}
+/*    else {
+//	alert(obj.mature);
+	if(obj.stream) {
+	    if(live == 1) {
+	    } else {
+		live=1;
+		ap=0;
+		document.getElementById("datStream").innerHTML="<iframe id='player' type='text/html' width='100%' height='100%' title='twitch' name='" + channel + "'src='http://www.twitch.tv/" + channel + "/embed' frameborder='0'></iframe>";			    
+	    }
+	} else {
+	    if(ap == 1) {
+	    }
+	    else {
+		ap = 1;
+		live=0;
+//		document.getElementById("datStream").innerHTML="<html><head></head><body><object width=\"100%\" height=\"100%\" id=\"lsplayer\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"><param name=\"movie\" value=\"http://cdn.livestream.com/grid/LSPlayer.swf?channel=titsrevival&amp;color=0x000000&amp;autoPlay=true&amp;mute=false&amp;iconColorOver=0xe7e7e7&amp;iconColor=0xcccccc\"></param><param name=\"allowScriptAccess\" value=\"always\"></param><param name=\"allowFullScreen\" value=\"true\"></param><embed name=\"lsplayer\" wmode=\"transparent\" src=\"http://cdn.livestream.com/grid/LSPlayer.swf?channel=titsrevival&amp;color=0x000000&amp;autoPlay=true&amp;mute=false&amp;iconColorOver=0xe7e7e7&amp;iconColor=0xcccccc\" width=\"100%\" height=\"100%\" allowScriptAccess=\"always\" allowFullScreen=\"true\" type=\"application/x-shockwave-flash\"></embed></object></body></html>";
+    document.getElementById("datStream").innerHTML="<html><head></head><body><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/videoseries?list=FL8TvySDl3yC1D-0BCskN9bQ&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
+	    }
+	}
+    }
+}*/
+
+function shuffle (array) {
+  var i = 0
+    , j = 0
+    , temp = null
+
+  for (i = array.length - 1; i > 0; i -= 1) {
+    j = Math.floor(Math.random() * (i + 1))
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+}
+
+function youtube() {
+    ap=1; live=0;
+    var tokens=vidids.split(',');
+    //tokens.sort(function(a, b){return 0.5 - Math.random()});
+    shuffle(tokens);
+    var new_tokens = tokens.slice(1,99).join();
+
+    document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/" + tokens[0] + "?playlist=" + new_tokens + "&amp;controls=1&amp;showinfo=0&amp;loop=1&amp;autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>";
+}
+
+function stream() {
+    live=1; ap=0;
+//    if(service == "twitch") {
+//  document.getElementById("datStream").innerHTML="<iframe width='100%' height='100%' src='https://www.youtube.com/embed/live_stream?channel=UC8TvySDl3yC1D-0BCskN9bQ&autoplay=1&showinfo=0' frameborder='0' allowfullscreen></iframe>";
+//  document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"http://cdn.livestream.com/embed/titsrevival?layout=4&color=0x000000&autoPlay=true&mute=false&iconColorOver=0xe7e7e7&iconColor=0xcccccc&allowchat=false\" style=\"border:0;outline:0\" frameborder=\"0\" scrolling=\"no\"></iframe>"
+
+//    document.getElementById("datStream").innerHTML="<object width=\"100%\" height=\"100%\" id=\"lsplayer\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"><param name=\"movie\" value=\"https://cdn.livestream.com/grid/LSPlayer.swf?channel=titsrevival&amp;color=0x000000&amp;autoPlay=true&amp;mute=false&amp;iconColorOver=0xe7e7e7&amp;iconColor=0xcccccc\"></param><param name=\"allowScriptAccess\" value=\"always\"></param><param name=\"allowFullScreen\" value=\"true\"></param><embed name=\"lsplayer\" wmode=\"transparent\" src=\"https://cdn.livestream.com/grid/LSPlayer.swf?channel=titsrevival&amp;color=0x000000&amp;autoPlay=true&amp;mute=false&amp;iconColorOver=0xe7e7e7&amp;iconColor=0xcccccc\" width=\"100%\" height=\"100%\" allowScriptAccess=\"always\" allowFullScreen=\"true\" type=\"application/x-shockwave-flash\"></embed></object>";
+
+		document.getElementById("datStream").innerHTML="<object width=\"100%\" height=\"100%\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\"><param name=\"flashvars\" value=\"cid=18203009&amp;autoplay=true\"/><param name=\"allowfullscreen\" value=\"true\"/><param name=\"allowscriptaccess\" value=\"always\"/><param name=\"src\" value=\"http://www.ustream.tv/flash/viewer.swf\"/><embed flashvars=\"cid=18203009&amp;autoplay=true\" width=\"100%\" height=\"100%\" allowfullscreen=\"true\" allowscriptaccess=\"always\" src=\"http://www.ustream.tv/flash/viewer.swf\" type=\"application/x-shockwave-flash\"></embed></object>";
+
+//			       document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"https://www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=false&quality=best&volume=100\" scrolling=\"no\" frameborder=\"0\" allowfullscreen webkitallowfullscreen style=\"border: 0 none transparent;\"></iframe>";
+//			       document.getElementById("datStream").innerHTML="<iframe src=\"http://ustream.tv/embed/18203009?html5ui\" style=\"border: 0 none transparent;\"  webkitallowfullscreen allowfullscreen frameborder=\"no\" width=\"100%\" height=\"100%\"></iframe>";
+
+//    } else {
+//	document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"http://hitbox.tv/#!/embed/" + channel + "?autoplay=true\" frameborder=\"0\" allowfullscreen></iframe>";
+//    }
+}
+
+function toggle() {
+    if(toggled==1) {
+	alert("Autoswitch between AP and stream has been disabled.");
+	toggled=0;
+	//clearInterval(id);
+	clearTimeout(id);
+	document.getElementById("rotate").innerHTML="off";
+    }
+    else {
+	alert("Autoswitch between AP and stream has been enabled.");
+	toggled=1;
+	get_strm();
+	document.getElementById("rotate").innerHTML="on";
+    }
+}
+
+/*function inject() {
+    var key = prompt("Enter the keycode to change embed","");
+    if(key == null || key == "") {
+	return 0;
+    }
+    var url = prompt("Enter the Twitch/Hitbox Stream URL","");
+    if(url == null || url == "") {
+	return 0;
+    }
+    var data = key + "=" + url;
+
+    $.post('strm.php', {strm: data});
+    /*
+      $.ajax({
+      type: 'POST',
+      url: 'strm.php',
+      data: {'strm': data},
+      success: function(data){
+      console.log(data);
+      alert(data);}
+      });
+    
+}*/
+/*
+  function submit_it(e) {
+  if(e.keyCode==13){
+  switch_channel(document.getElementById('channel_box').value);
+  }
+  }
+*/
+function popoutStream() {
+    var width=640;
+    var height=480;
+    var left=(screen.width / 2) - (width / 2);
+    var top = (screen.height / 2) - (height / 2);
+
+    var channel=document.getElementById('datStream').contentWindow.document.getElementById('player').name;
+
+    //var service="";
+    
+    //service=document.getElementById('datStream').contentWindow.document.getElementById('player').title;
+
+    var url_builder="";
+
+    if(!channel || channel == "undefined") {
+	channel = document.getElementById('channel_box').value;
+    }
+
+    if(channel != "undefined" || channel != "") {
+	url_builder = "stream.htm?channel=" + channel;
+    } else { url_builder = "stream.htm"; }
+
+    window.open(url_builder,'mainstream','titlebar=no,scrollbars=no,menubar=no,height='+height+',width='+width+',resizable=yes,toolbar=no,statusbar=no,location=0,directories=no,status=no,top='+top+',left='+left);
+}
+
+function switch_channel(channel) {
+    if(!channel || channel == "undefined") {
+	if(document.getElementById('radio_stream').checked) {
+	    document.getElementById('datStream').src="stream.htm";
+	} else {
+	    document.getElementById('datChat').src="chat.htm";
+	}
+    } else {
+	if(document.getElementById('radio_stream').checked) {
+	    document.getElementById('datStream').src="stream.htm?channel=" + channel;
+	} else {
+	    document.getElementById('datChat').src="chat.htm?channel=" + channel;
+	}
+	// auto-update the title to reflect the update
+	// var stateObj = { foo: "bar" };
+	// history.replaceState(stateObj, "Strm", "http://itn.cow.no/index?channel=" + channel);
+	//location="http://itn.cow.no/index?channel=" + channel;
+	//window.stop();
+    }
+}
+
+function popout_chat() {
+    var width=640;
+    var height=480;
+    var left=(screen.width / 2) - (width / 2);
+    var top=(screen.height / 2) - (width / 2);
+
+    window.open('chat.html','chat','titlebar=no,scrollbars=no,menubar=no,height='+height+',width='+width+',resizable=yes,toolbar=no,statusbar=no,location=0,directories=no,status=no,top='+top+',left='+left);
+}
+
+function dim() {
+    if(dimmed==1) {
+	dimmed=0;
+	$('#buttons').css('opacity', '1');
+	$('#footer').css('opacity', '1');
+    }
+    else {
+	dimmed=1;
+	$('#buttons').css('opacity', '0.4');
+	$('#footer').css('opacity', '0.4');
+    }
+}
+
+$(document).ready(function(){
+    $("#bookmark").click(function(e){
+	var bookmark_url = "http://imperialterra.cow.no";
+	var bookmark_title = "TITS Is The Stream";
+	if(window.chrome) {
+    	    alert("Press Control+D to bookmark page.");
+	    return false;
+	}
+	else if (window.sidebar) {
+            //window.alert("Firefox no longer supports this.");
+            window.sidebar.addPanel(bookmark_title,bookmark_url,"");
+	    alert("firefox");
+	    return true;
+	} else if(window.external || document.all) {
+            window.external.AddFavorite(bookmark_url, bookmark_title);
+	    alert("ie");
+	    //alert("Added to bookmarks!");
+	    return true;
+	} else if(window.opera) {
+	    alert("opera");
+            $("#bookmark").attr("href",bookmark_url);
+            $("#bookmark").attr("title",bookmark_title);
+            $("#bookmark").attr("rel","sidebar");
+	    //alert("Added to bookmarks!");
+	    return true;
+	} else {
+	    alert("Unknown error occurred.");
+	    return false;
+	}
+    });
+});
+
+$(function() {
+    $('#slider').slider({
+        value: 60,
+        slide: handleSliderChange
+    });
+});
+
+function handleSliderChange(event, slider){
+    if(!mirrored) {
+	$('#datChat').width((100 - slider.value) + '%');
+	$('#datStream').width(slider.value + '%');
+    } else {
+	$('#datStream').width((100 - slider.value) + '%');
+	$('#datChat').width(slider.value + '%');
+    }
+}
+
+function mirror() {
+    if(!mirrored) {
+	mirrored=1;
+	$('#slider').slider("value",100 - $('#slider').slider("value"));
+	document.getElementById('datChat').style.cssFloat = 'left';
+	document.getElementById('datChat').style.styleFloat = 'left';
+	document.getElementById('datStream').style.cssFloat = 'right';
+	document.getElementById('datStream').style.styleFloat = 'right';
+    }
+    else {
+	mirrored=0;
+	$('#slider').slider("value",100 - $('#slider').slider("value"));
+	document.getElementById('datChat').style.cssFloat = 'right';
+	document.getElementById('datChat').style.styleFloat = 'right';
+	document.getElementById('datStream').style.cssFloat = 'left';
+	document.getElementById('datStream').style.styleFloat = 'left';
+    }
+}
+</script>
+</head>
+<body>
+<div id="overlay">
+<div id="buttons"><div class="left">
+<a href="https://steamcommunity.com/groups/imperialterra" title="Home" class="banner" id="home" target="_blank"><img src="icon.png" alt="Banner" /></a> <a href="#" onclick="stream();" class="footer_links" title="Make the video embed the livestream">Livestrm</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a class="footer_links" onclick="toggle();" href="#" title="Turn on/off the ap and stream autoswitch.">Rotate (<span id="rotate">on</span>)</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" onclick="popout_chat();" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a></span></div><div class="right">
+Size: <div class="bar" id="slider"></div>
+</div></div>
+<div id="main">
+<div id="datStream"></div>
+<!--
+<iframe width="100%" height="100%" src="https://www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=false&quality=best&autoplay=true" scrolling="no" frameborder="0" id="ustream" allowfullscreen webkitallowfullscreen style="border: 0 none transparent;"></iframe>
+
+<iframe src="stream.htm" style="border: 0 none transparent;"  webkitallowfullscreen allowfullscreen frameborder="no" width="100%" height="100%" />
+-->
+<div id="datChat"><script id="cid0020000091926456494" data-cfasync="false" async src="https://st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"imperialterra","arch":"js","styles":{"a":"191919","b":100,"c":"cccccc","d":"cccccc","e":"000000","g":"ffffff","h":"000000","j":"ffffff","k":"cccccc","l":"191919","m":"191919","n":"FFFFFF","p":"10","q":"191919","r":100,"t":0,"sbc":"cccccc","surl":0,"fwtickm":1}}</script></div>
+</div></div>
+</div>
+</body>
+</html>
